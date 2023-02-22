@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPersonneController">
+   <children>
+      <Label layoutX="212.0" layoutY="44.0" text="Ajouter Personne" textFill="#252525">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomField" layoutX="46.0" layoutY="108.0" promptText="Nom" />
+      <TextField fx:id="prenomField" layoutX="46.0" layoutY="175.0" promptText="Prénom" />
+      <TextField fx:id="ageField" layoutX="46.0" layoutY="248.0" promptText="Age" />
+      <Button fx:id="ajouterBtn" layoutX="445.0" layoutY="318.0" mnemonicParsing="false" onAction="#ajouterPersonne" style="-fx-background-color: #252525;" text="Ajouter" textFill="WHITE" />
+      <Button fx:id="afficherBtn" layoutX="506.0" layoutY="318.0" mnemonicParsing="false" onAction="#afficherPersonnes" style="-fx-background-color: #252525;" text="Afficher" textFill="WHITE" />
+   </children>
+</AnchorPane>
