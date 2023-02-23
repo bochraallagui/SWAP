@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="213.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@663338.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="dateLabel" layoutX="166.0" layoutY="246.0" text="Label" />
+      <Label fx:id="prixLabel" layoutX="363.0" layoutY="246.0" text="Label" />
+      <Label fx:id="adresseLabel" layoutX="166.0" layoutY="301.0" text="Label" />
+      <Label fx:id="idlivreurLabel" layoutX="363.0" layoutY="301.0" text="Label" />
+   </children>
+</AnchorPane>
