@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPointrelaisController">
+   <children>
+      <Label layoutX="212.0" layoutY="44.0" prefHeight="34.0" prefWidth="240.0" text="Ajouter Pointrelais" textFill="#252525">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="prix_pointrelaisField" layoutX="73.0" layoutY="200.0" promptText="prix_pointrelais" />
+      <Button fx:id="ajouterpointrelaisBtn" layoutX="314.0" layoutY="324.0" mnemonicParsing="false" onAction="#AjouterPointrelais" style="-fx-background-color: #252525;" text="AjouterPointrelais" textFill="WHITE" />
+      <Button fx:id="afficherpointrelaisBtn" layoutX="462.0" layoutY="324.0" mnemonicParsing="false" onAction="#AfficherPointrelais" style="-fx-background-color: #252525;" text="AfficherPointrelais" textFill="WHITE" />
+      <TextField fx:id="adresse_pointrelaisField" layoutX="73.0" layoutY="130.0" promptText="adresse_pointrelais" />
+   </children>
+</AnchorPane>

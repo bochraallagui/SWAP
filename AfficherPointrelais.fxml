@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"fx:controller="gui.AfficherPointrelaisController">
+   <children>
+      <ScrollPane layoutX="16.0" layoutY="80.0" prefHeight="289.0" prefWidth="568.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <GridPane fx:id="grid1" layoutX="-1.0" layoutY="16.0" prefHeight="290.0" prefWidth="570.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="99.79999389648438" minHeight="10.0" prefHeight="93.4" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="109.40000000000003" minHeight="10.0" prefHeight="109.40000000000003" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Label layoutX="216.0" layoutY="32.0" prefHeight="26.0" prefWidth="166.0" text="Afficher Pointrelais" />
+   </children>
+</AnchorPane>
