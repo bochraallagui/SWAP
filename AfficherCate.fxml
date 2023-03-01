@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherCateController">
+   <children>
+      <VBox alignment="BOTTOM_CENTER" layoutY="210.0" prefHeight="514.0" prefWidth="193.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnutilisateurs" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="Utilisateurs" textOverrun="CENTER_ELLIPSIS">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #7B241C;" text="Categories" textFill="WHITE">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnservices1" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="Services">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnreclamations" alignment="BASELINE_LEFT" graphicTextGap="7.0" layoutX="10.0" layoutY="343.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="Réclamations ">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlivraison" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" text="Livraison">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btndéconnexion" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="256.0" text="Déconnexion" textAlignment="RIGHT">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TableView fx:id="table" layoutX="569.0" layoutY="107.0" onMouseClicked="#getData" prefHeight="324.0" prefWidth="176.0">
+         <columns>
+            <TableColumn fx:id="typeC" prefWidth="175.199951171875" text="TYPE" />
+         </columns>
+      </TableView>
+      <Label layoutX="291.0" layoutY="14.0" prefHeight="79.0" prefWidth="347.0" text="Categories" textFill="#7b241c">
+         <font>
+            <Font name="Calibri" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="188.0" prefHeight="35.0" prefWidth="70.0" text="Type">
+         <font>
+            <Font name="Times New Roman Bold" size="31.0" />
+         </font>
+      </Label>
+      <Button layoutX="205.0" layoutY="308.0" mnemonicParsing="false" onAction="#AjouterCommande" prefHeight="38.0" prefWidth="80.0" text="Ajouter">
+         <font>
+            <Font name="Calibri Light Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="324.0" layoutY="308.0" mnemonicParsing="false" onAction="#ModifierCommande" prefHeight="38.0" prefWidth="95.0" text="Modifier">
+         <font>
+            <Font name="Calibri Light Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" onAction="#SupprimerCommande" prefHeight="38.0" prefWidth="101.0" text="Supprimer">
+         <font>
+            <Font name="Calibri Light Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="657.0" layoutY="34.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="38.0" prefWidth="101.0" text="Refresh">
+         <font>
+            <Font name="Calibri Light Italic" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="typeF" layoutX="285.0" layoutY="188.0" prefHeight="35.0" prefWidth="209.0" />
+   </children>
+</AnchorPane>
