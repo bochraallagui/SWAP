@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="938.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterFeedbackController">
+   <children>
+      <Text layoutX="45.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FEEDBACK" wrappingWidth="269.81956481933594">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableUsers" layoutX="26.0" layoutY="105.0" onMouseClicked="#getData1" prefHeight="322.0" prefWidth="292.0" style="-fx-background-color: #000000;">
+         <columns>
+            <TableColumn fx:id="nomC" prefWidth="75.0" text="NOM" />
+            <TableColumn fx:id="prenomC" prefWidth="75.0" text="PRENOM" />
+            <TableColumn fx:id="emailC" prefWidth="139.20001220703125" text="EMAIL" />
+         </columns>
+      </TableView>
+      <Pane layoutX="38.0" layoutY="48.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutX="905.0" layoutY="7.0" prefHeight="30.0" prefWidth="49.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#close" prefHeight="34.0" prefWidth="29.0" style="-fx-background-color: #000000;" text="X" textFill="WHITE" />
+         </children>
+      </HBox>
+      <Button layoutX="825.0" layoutY="7.0" mnemonicParsing="false" onAction="#clear" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #000000;" text="CLEAR" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+      <VBox alignment="CENTER" layoutX="356.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="242.0">
+         <children>
+            <ImageView fitHeight="63.0" fitWidth="66.0">
+               <image>
+                  <Image url="@heart.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nom_prenom" prefHeight="26.0" prefWidth="274.0" promptText="Nom Prenom">
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="service" promptText="service">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <ChoiceBox fx:id="choice" prefHeight="29.0" prefWidth="104.0" />
+            <Button mnemonicParsing="false" onAction="#valider" prefHeight="48.0" prefWidth="115.0" style="-fx-background-color: #000000;" text="VALIDER" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Text layoutX="100.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERS" wrappingWidth="122.61953735351562">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableServices" layoutX="622.0" layoutY="108.0" onMouseClicked="#getData2" prefHeight="322.0" prefWidth="292.0" style="-fx-background-color: #000000;">
+         <columns>
+            <TableColumn fx:id="descS" prefWidth="176.0" text="DESCRIPTION" />
+            <TableColumn fx:id="dateS" prefWidth="115.199951171875" text="DATE" />
+         </columns>
+      </TableView>
+      <Text layoutX="689.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SERVICES" wrappingWidth="158.61953735351562">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

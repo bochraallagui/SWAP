@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="938.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPersController">
+   <children>
+      <Text layoutX="45.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERS" wrappingWidth="128.21954345703125">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableUsers" layoutX="26.0" layoutY="105.0" onMouseClicked="#getData" prefHeight="322.0" prefWidth="672.0" style="-fx-background-color: #000000;">
+        <columns>
+          <TableColumn fx:id="nomC" prefWidth="75.0" text="NOM" />
+          <TableColumn fx:id="prenomC" prefWidth="75.0" text="PRENOM" />
+            <TableColumn fx:id="date_naissanceC" prefWidth="113.60003662109375" text="DATE NAISSANCE" />
+            <TableColumn fx:id="roleC" prefWidth="75.0" text="ROLE" />
+            <TableColumn fx:id="adresseC" prefWidth="94.4000244140625" text="ADRESSE" />
+            <TableColumn fx:id="num_telC" prefWidth="95.19998168945312" text="TELEPHONE" />
+            <TableColumn fx:id="emailC" prefWidth="139.20001220703125" text="EMAIL" />
+        </columns>
+      </TableView>
+      <Pane layoutX="38.0" layoutY="48.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutX="905.0" layoutY="7.0" prefHeight="30.0" prefWidth="49.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#close" prefHeight="34.0" prefWidth="29.0" style="-fx-background-color: #000000;" text="X" textFill="WHITE" />
+         </children></HBox>
+      <Button layoutX="595.0" layoutY="60.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font></Button>
+      <Button fx:id="refreshByn" layoutX="825.0" layoutY="7.0" mnemonicParsing="false" onAction="#refresh" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #000000;" text="refresh" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font></Button>
+      <Button layoutX="761.0" layoutY="360.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #000000;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="760.0" layoutY="313.0" mnemonicParsing="false" onAction="#modifier" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #000000;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font>
+      </Button>
+      <VBox alignment="CENTER" layoutX="698.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="242.0">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="85.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@663338.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nomTf" prefHeight="26.0" prefWidth="274.0" promptText="Nom">
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="prenomTf" promptText="Prénom">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="adresseTf" promptText="Adresse">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="numTf" promptText="telephone">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="passwordTf" promptText="password">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </PasswordField>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
