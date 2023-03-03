@@ -19,8 +19,8 @@ public class NewFXMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterLivraison.fxml"));
-        Scene scene = new Scene(root,600,400); 
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AfficherPointrelais.fxml"));
+        Scene scene = new Scene(root,1000,800); 
         primaryStage.setTitle("Gérer Livraisons");
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package services;
 
@@ -16,14 +17,13 @@ import utils.MyDB;
 
 /**
  *
- * @author hp
+ * @author Skander
  */
 public  class PointrelaisService implements IService<Pointrelais> {
 
     Connection cnx;
 
     public PointrelaisService() {
-        
         cnx = MyDB.getInstance().getCnx();
     }
 
@@ -34,29 +34,38 @@ public  class PointrelaisService implements IService<Pointrelais> {
      */
     @Override
     public void AjouterPointrelais(Pointrelais p) throws SQLException {
-        String req = "INSERT INTO pointrelais(adresse_pointrelais,prix_pointrelais) VALUES("
+        String req = "INSERT INTO pointrelais (adresse_pointrelais,region,horaire) VALUES("
     
                 
                 
-                + "'" +  p.getAdresse_pointrelais() + "','" + p.getPrix_pointrelais()  +"')";
+                + "'" +  p.getAdresse_pointrelais() + "','" +p.getRegion() + "'," + p.getHoraire() + ")";
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
     }
 
     @Override
     public void ModifierPointrelais(Pointrelais p) throws SQLException {
-        String req = "UPDATE pointrelais SET adresse_pointrelais = ?,prix_pointrelais = ? where id_pointrelais = ?";
+        String req = "UPDATE pointrelais SET adresse_pointrelais = ?,region = ?,horaire = ? where id_pointrelais = ?";
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setString(1, (String) p.getAdresse_pointrelais());
-        ps.setInt(2, (int) p.getPrix_pointrelais());
-        ps.setInt(3, p.getId_pointrelais());
+        ps.setString(2, (String) p.getRegion());
+        ps.setInt(3, (int) p.getHoraire());
+        ps.setInt(4, p.getId_pointrelais());
         ps.executeUpdate();
 
     }
 
     @Override
     public void SupprimerPointrelais(Pointrelais p) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String req;
+            req = "delete from pointrelais where id_pointrelais =?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,p.getId_pointrelais());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+           throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         }
     }
 
     @Override
@@ -68,7 +77,8 @@ public  class PointrelaisService implements IService<Pointrelais> {
         while (rs.next()) {
             Pointrelais p = new Pointrelais();
             p.setAdresse_pointrelais(rs.getString("adresse_pointrelais"));
-            p.setPrix_pointrelais(rs.getInt("prix_pointrelais"));
+            p.setRegion(rs.getString("region"));
+            p.setHoraire(rs.getInt("horaire"));
             p.setId_pointrelais(rs.getInt("id_pointrelais"));
 
             pointrelais.add(p);
@@ -83,12 +93,12 @@ public  class PointrelaisService implements IService<Pointrelais> {
     }
 
     @Override
-    public void modifier(Pointrelais t) throws SQLException {
+    public void ModifierLivraison(Pointrelais t) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void supprimer(Pointrelais t) throws SQLException {
+    public void SupprimerLivraison(Pointrelais t) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -97,7 +107,6 @@ public  class PointrelaisService implements IService<Pointrelais> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-
+    
 
 }
-

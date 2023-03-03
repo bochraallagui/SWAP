@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"fx:controller="gui.AfficherPointrelaisController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="845.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPointrelaisController">
    <children>
-      <ScrollPane layoutX="16.0" layoutY="80.0" prefHeight="289.0" prefWidth="568.0">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <GridPane fx:id="grid1" layoutX="-1.0" layoutY="16.0" prefHeight="290.0" prefWidth="570.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="99.79999389648438" minHeight="10.0" prefHeight="93.4" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="109.40000000000003" minHeight="10.0" prefHeight="109.40000000000003" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-         </content>
-      </ScrollPane>
-      <Label layoutX="216.0" layoutY="32.0" prefHeight="26.0" prefWidth="166.0" text="Afficher Pointrelais" />
+      <TableView fx:id="tablePointrelais" layoutX="21.0" layoutY="135.0" prefHeight="333.0" prefWidth="610.0">
+        <columns>
+          <TableColumn fx:id="adresse_pointrelais" prefWidth="150.39998817443848" text="adresse pointrelais" />
+          <TableColumn fx:id="region" minWidth="0.0" prefWidth="136.0" text="region" />
+            <TableColumn fx:id="horaire" prefWidth="184.0" text="horaire" />
+        </columns>
+      </TableView>
+      <Label layoutX="200.0" layoutY="46.0" prefHeight="39.0" prefWidth="318.0" text="Afficher les point de relais" textFill="#ece5e5">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutX="651.0" layoutY="148.0" prefHeight="223.0" prefWidth="179.0" spacing="21.0">
+         <children>
+            <TextField fx:id="adresse_pointrelaisField1" promptText="adresse" />
+            <TextField fx:id="regionField1" promptText="region" />
+            <TextField fx:id="horaireField1" layoutX="10.0" layoutY="10.0" promptText="horaire" />
+         </children>
+      </VBox>
+      <Button layoutX="680.0" layoutY="46.0" mnemonicParsing="false" onAction="#RefreshP" prefHeight="26.0" prefWidth="94.0" text="Refresh">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="40.0" layoutY="503.0" mnemonicParsing="false" onAction="#AjouterPointrelais" prefHeight="44.0" prefWidth="145.0" text="Ajouter">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="698.0" layoutY="444.0" mnemonicParsing="false" onAction="#ModifierPointrelais" prefHeight="33.0" prefWidth="130.0" text="Modifier">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="706.0" layoutY="503.0" mnemonicParsing="false" onAction="#SupprimerPointrelais" prefHeight="33.0" prefWidth="130.0" text="Supprimer">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

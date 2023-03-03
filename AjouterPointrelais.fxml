@@ -3,19 +3,47 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPointrelaisController">
+<Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPointrelaisController">
    <children>
-      <Label layoutX="212.0" layoutY="44.0" prefHeight="34.0" prefWidth="240.0" text="Ajouter Pointrelais" textFill="#252525">
+      <Label layoutX="83.0" layoutY="35.0" prefHeight="85.0" prefWidth="677.0" text="Ajouter pointrelais" textFill="#e7e5e5">
          <font>
-            <Font size="23.0" />
+            <Font name="Times New Roman Bold" size="41.0" />
          </font>
       </Label>
-      <TextField fx:id="prix_pointrelaisField" layoutX="73.0" layoutY="200.0" promptText="prix_pointrelais" />
-      <Button fx:id="ajouterpointrelaisBtn" layoutX="314.0" layoutY="324.0" mnemonicParsing="false" onAction="#AjouterPointrelais" style="-fx-background-color: #252525;" text="AjouterPointrelais" textFill="WHITE" />
-      <Button fx:id="afficherpointrelaisBtn" layoutX="462.0" layoutY="324.0" mnemonicParsing="false" onAction="#AfficherPointrelais" style="-fx-background-color: #252525;" text="AfficherPointrelais" textFill="WHITE" />
-      <TextField fx:id="adresse_pointrelaisField" layoutX="73.0" layoutY="130.0" promptText="adresse_pointrelais" />
+      <VBox layoutX="42.0" layoutY="184.0" prefHeight="225.0" prefWidth="154.0" spacing="25.0">
+         <children>
+            <Label text="adresse pointrelais" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="55.0" prefHeight="20.0" prefWidth="84.0" text="region" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label prefHeight="23.0" prefWidth="150.0" text="horaire" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="221.0" layoutY="182.0" prefHeight="223.0" prefWidth="179.0" spacing="21.0">
+         <children>
+            <TextField fx:id="adresse_pointrelaisField" promptText="adresse" />
+            <TextField fx:id="regionField" layoutX="10.0" layoutY="10.0" promptText="region" />
+            <TextField fx:id="horaireField" promptText="horaire" />
+         </children>
+      </VBox>
+      <Button layoutX="496.0" layoutY="443.0" mnemonicParsing="false" onAction="#AjouterPointrelais" prefHeight="38.0" prefWidth="114.0" text="Ajouter">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
-</AnchorPane>
+</Pane>

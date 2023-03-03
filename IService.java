@@ -17,9 +17,9 @@ public interface IService<T> {
     
     public void AjouterLivraison(T t) throws SQLException;
     public void AjouterPointrelais(T p) throws SQLException;
-    public void modifier(T t) throws SQLException;
+    public void ModifierLivraison(T t) throws SQLException;
     public void ModifierPointrelais(T p) throws SQLException;
-    public void supprimer(T t) throws SQLException;
+    public void SupprimerLivraison(T t) throws SQLException;
     public void SupprimerPointrelais(T p) throws SQLException;
     public List<T> recuperer() throws SQLException;
     public List<T> recupererPointrelais() throws SQLException;

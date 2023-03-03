@@ -10,26 +10,32 @@ package entities;
  */
 public class Pointrelais {
     
-    private int id_pointrelais, prix_pointrelais;
-    private String adresse_pointrelais;
+    private int id_pointrelais, horaire;
+    private String adresse_pointrelais,region;
    
     
     
     public Pointrelais() {
     }
 
-    public Pointrelais(int id_pointrelais,String adresse_pointrelais, int prix_pointrelais) {
+    public Pointrelais(int id_pointrelais,String adresse_pointrelais,String region, int horaire) {
         
         this.id_pointrelais = id_pointrelais;
         this.adresse_pointrelais= adresse_pointrelais;
-        this.prix_pointrelais= prix_pointrelais;
+        this.region = region;
+        this.horaire = horaire;
+        
+         
+
+        
         
     }
 
-    public Pointrelais(String adresse_pointrelais,int prix_pointrelais) {
+    public Pointrelais(String adresse_pointrelais,String region, int horaire) {
         
-        this.adresse_pointrelais = adresse_pointrelais;
-        this.prix_pointrelais = prix_pointrelais;
+        this.adresse_pointrelais= adresse_pointrelais;
+        this.region = region;
+        this.horaire = horaire;
         
     }  
 
@@ -41,12 +47,12 @@ public class Pointrelais {
         this.id_pointrelais = id_pointrelais;
     }
 
-    public int getPrix_pointrelais() {
-        return prix_pointrelais;
+    public int getHoraire() {
+        return horaire;
     }
 
-    public void setPrix_pointrelais(int prix_pointrelais) {
-        this.prix_pointrelais = prix_pointrelais;
+    public void setHoraire(int horaire) {
+        this.horaire = horaire;
     }
 
     public String getAdresse_pointrelais() {
@@ -57,10 +63,20 @@ public class Pointrelais {
         this.adresse_pointrelais = adresse_pointrelais;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
     @Override
     public String toString() {
-        return "Pointrelais{" + "id_pointrelais=" + id_pointrelais + ", adresse_pointrelais=" + adresse_pointrelais + ", prix_pointrelais=" + prix_pointrelais + '}';
+        return "Pointrelais{" + "id_pointrelais=" + id_pointrelais + ", horaire=" + horaire + ", adresse_pointrelais=" + adresse_pointrelais + ", region=" + region + '}';
     }
+
+   
     
     
     
