@@ -49,6 +49,28 @@ public class AjouterPointrelaisController implements Initializable {
            P.setRegion(regionField.getText());
            P.setHoraire(Integer.valueOf(horaireField.getText()));
            
+           
+           
+           
+           // Check that required fields are not empty 
+        if (adresse_pointrelaisField.getText().isEmpty() || regionField.getText().isEmpty() ) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Missing fields");
+            alert.setHeaderText("All fields must be filled");
+            alert.showAndWait();
+            return;
+        }
+ try {
+                ps.AjouterPointrelais(P);
+                reset();
+            } catch (SQLException ex)  {    
+                System.out.println("error" + ex.getMessage());
+            }
+           
+           
+           
+           
+           
            try {
             
             ps.AjouterPointrelais(P);

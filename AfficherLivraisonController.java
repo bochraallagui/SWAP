@@ -118,7 +118,7 @@ public class AfficherLivraisonController implements Initializable {
     @FXML
     private void AjouterLivraison(ActionEvent event) {
           try{
-             Parent loader = FXMLLoader.load(getClass().getResource("AjouterLivraison.fxml"));
+            Parent loader = FXMLLoader.load(getClass().getResource("AjouterLivraison.fxml"));
             Scene scene = new Scene(loader);
             Stage stage = new Stage();
             stage.setScene(scene);

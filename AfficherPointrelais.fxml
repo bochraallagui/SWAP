@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="845.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPointrelaisController">
    <children>
-      <TableView fx:id="tablePointrelais" layoutX="21.0" layoutY="135.0" prefHeight="333.0" prefWidth="610.0">
+      <TableView fx:id="tablePointrelais" layoutX="21.0" layoutY="135.0" onMouseClicked="#getData" prefHeight="333.0" prefWidth="610.0">
         <columns>
           <TableColumn fx:id="adresse_pointrelais" prefWidth="150.39998817443848" text="adresse pointrelais" />
           <TableColumn fx:id="region" minWidth="0.0" prefWidth="136.0" text="region" />

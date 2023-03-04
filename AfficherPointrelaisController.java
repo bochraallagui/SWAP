@@ -124,8 +124,8 @@ public class AfficherPointrelaisController implements Initializable {
             
             ps.ModifierPointrelais(P);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ajout réussie");
-            alert.setHeaderText("L'ajout a été effectuée avec succès.");
+            alert.setTitle("Modification réussie");
+            alert.setHeaderText("La modification a été effectuée avec succès.");
             alert.showAndWait();
            
         } catch (SQLException ex) {

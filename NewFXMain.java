@@ -19,7 +19,7 @@ public class NewFXMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AfficherPointrelais.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AfficherLivraison.fxml"));
         Scene scene = new Scene(root,1000,800); 
         primaryStage.setTitle("Gérer Livraisons");
         primaryStage.setScene(scene);
