@@ -65,6 +65,7 @@ public class UserServie implements IService<User> {
             PreparedStatement ps=cnx.prepareStatement(req);
             ps.setInt(1,t.getId());
             ps.executeUpdate();
+            
         } catch (SQLException ex) {
            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
          }

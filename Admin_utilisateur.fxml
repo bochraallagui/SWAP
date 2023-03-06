@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="938.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Admin_utilisateurController">
+   <children>
+      <VBox alignment="BOTTOM_CENTER" layoutX="-5.0" layoutY="-7.0" prefHeight="513.0" prefWidth="214.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Button fx:id="btn_utilisateurs" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" style="-fx-background-color: #7B241C;" text="Utilisateurs" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_categories" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" onAction="#page_categories" prefHeight="42.0" prefWidth="259.0" text="Categories">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_services" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" onAction="#page_services" prefHeight="42.0" prefWidth="259.0" text="Services">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_produits" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" onAction="#page_produits" prefHeight="46.0" prefWidth="210.0" text="Produits" textAlignment="RIGHT">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_feedbacks" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" onAction="#page_feedbacks" prefHeight="42.0" prefWidth="259.0" text="Feedbacks">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_reclamations" alignment="BASELINE_LEFT" graphicTextGap="7.0" layoutX="10.0" layoutY="343.0" mnemonicParsing="false" onAction="#page_reclamations" prefHeight="42.0" prefWidth="259.0" text="Réclamations ">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_livraisons" alignment="BASELINE_LEFT" graphicTextGap="7.0" mnemonicParsing="false" onAction="#page_livraisons" prefHeight="42.0" prefWidth="259.0" text="Livraisons">
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman Bold" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Text layoutX="45.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" wrappingWidth="128.21954345703125">
+         <font>
+            <Font name="Bauhaus 93" size="39.0" />
+         </font>
+      </Text>
+      <Pane layoutX="38.0" layoutY="48.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <TableView fx:id="tableUsers" layoutX="241.0" layoutY="61.0" onMouseClicked="#getData" prefHeight="322.0" prefWidth="665.0" style="-fx-background-color: #000000;">
+         <columns>
+            <TableColumn fx:id="nomC" prefWidth="75.0" text="NOM" />
+            <TableColumn fx:id="prenomC" prefWidth="75.0" text="PRENOM" />
+            <TableColumn fx:id="date_naissanceC" prefWidth="113.60003662109375" text="DATE NAISSANCE" />
+            <TableColumn fx:id="roleC" prefWidth="75.0" text="ROLE" />
+            <TableColumn fx:id="adresseC" prefWidth="94.4000244140625" text="ADRESSE" />
+            <TableColumn fx:id="num_telC" prefWidth="95.19998168945312" text="TELEPHONE" />
+            <TableColumn fx:id="emailC" prefWidth="139.20001220703125" text="EMAIL" />
+         </columns>
+      </TableView>
+      <Button layoutX="800.0" layoutY="421.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font>
+      </Button>
+      <VBox alignment="CENTER" layoutX="249.0" layoutY="401.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="327.0">
+         <children>
+            <TextField fx:id="nomTf" prefHeight="26.0" prefWidth="274.0" promptText="Nom">
+               <opaqueInsets>
+                  <Insets bottom="5.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="prenomTf" promptText="Prénom">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="adresseTf" promptText="Adresse">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="numTf" promptText="telephone">
+               <VBox.margin>
+                  <Insets left="70.0" right="70.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <ImageView fitHeight="79.0" fitWidth="85.0" layoutX="239.0" layoutY="401.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@663338.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="561.0" layoutY="442.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #000000;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="560.0" layoutY="395.0" mnemonicParsing="false" onAction="#modifier" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #000000;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="894.0" layoutY="6.0" mnemonicParsing="false" onAction="#close" prefHeight="34.0" prefWidth="29.0" style="-fx-background-color: #000000;" text="X" textFill="WHITE" />
+      <Button fx:id="refreshByn" layoutX="805.0" layoutY="7.0" mnemonicParsing="false" onAction="#refresh" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #000000;" text="refresh" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
