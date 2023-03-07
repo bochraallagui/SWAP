@@ -6,25 +6,26 @@
 package test;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import java.lang.IllegalArgumentException ;
 /**
  *
- * @author Skander
+ * @author bochra
  */
 public class NewFXMain1 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AjouterPersonne.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AjouterReclamation.fxml"));
             Parent root = loader.load();
             Scene sc = new Scene(root);
-            primaryStage.setTitle("Personnes");
+            primaryStage.setTitle("reponse");
             primaryStage.setScene(sc);
             primaryStage.show();
         } catch (IOException ex) {

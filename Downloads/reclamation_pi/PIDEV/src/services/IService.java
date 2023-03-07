@@ -14,9 +14,16 @@ import java.util.List;
  */
 public interface IService<T> {
     
-    public void ajouter(T t) throws SQLException;
+    public void AjouterReclamation(T t)  throws SQLException;
     public void modifier(T t) throws SQLException;
-    public void supprimer(T t) throws SQLException;
-    public List<T> recuperer() throws SQLException;
+    public boolean supprimerReclamation(T t) throws SQLException;
+    public List<T> AfficherReclamation() throws SQLException;
+      public List<T> recuperer() throws SQLException;
     
+      
+      public void AjouterReponse(T t)  throws SQLException;
+    public void modifierReponse(T t) throws SQLException;
+    public boolean supprimerReponse(T t) throws SQLException;
+    public List<T> AfficherReponse() throws SQLException;
+      public List<T> recupererReponse() throws SQLException;
 }

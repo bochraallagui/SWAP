@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class MyDB {
 
-    String url = "jdbc:mysql://localhost:3306/esprit";
+    String url = "jdbc:mysql://localhost:3306/swap";
     String username = "root";
     String password = "";
 
@@ -27,7 +27,7 @@ public class MyDB {
     private MyDB() {
         try {
             cnx = DriverManager.getConnection(url, username, password);
-            System.out.println("Connexion établie");
+            System.out.println("Connexion etablie");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

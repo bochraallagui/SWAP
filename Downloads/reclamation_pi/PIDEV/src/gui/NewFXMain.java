@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,15 +14,15 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Skander
+ * @author bochra
  */
 public class NewFXMain extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterPersonne.fxml"));
-        Scene scene = new Scene(root,600,400); 
-        primaryStage.setTitle("Gérer Personnes");
+    public void start(Stage primaryStage) throws IOException  {
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjouterReponse.fxml"));
+        Scene scene = new Scene(root,800,600); 
+        primaryStage.setTitle("Gérer les reclamations");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

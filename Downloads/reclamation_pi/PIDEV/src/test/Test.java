@@ -5,29 +5,35 @@
  */
 package test;
 
-import entities.Personne;
+import entities.Reclamation;
+import entities.Reponse;
 import java.sql.SQLException;
-import services.PersonneService;
+import services.ReclamationService;
+import services.ReponseService;
 
 
 /**
  *
- * @author Skander
+ * @author bochra
  */
 public class Test {
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
        
-        try {
-            Personne p = new Personne( 1,25, "Ala", "Ali");
-            PersonneService ps = new PersonneService();
-            ps.ajouter(p);
-            ps.modifier(p);
-            System.out.println(ps.recuperer());
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+        Reclamation r = new Reclamation( 1,"bochra", "allagui", "emaill","reclamation pour des raisons" ,2);
+        ReclamationService rs = new ReclamationService();
+        rs.AjouterReclamation(r);
+        rs.modifier(r);
+       
+        
+
     
-}
+    
+      Reponse e = new Reponse( 1,2,"reclamation traite",3);
+        ReponseService es = new ReponseService();
+        es.AjouterReponse(e);
+        es.modifierReponse(e);
+        
+      
+}}
