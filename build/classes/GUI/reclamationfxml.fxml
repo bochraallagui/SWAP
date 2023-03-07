@@ -43,7 +43,7 @@
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Button>
       <TextField fx:id="id" layoutX="411.0" layoutY="166.0" prefHeight="26.0" prefWidth="272.0" promptText="id reclamation" />
-      <Text fill="#efefef" layoutX="295.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id reclamation" wrappingWidth="99.20000000000005">
+      <Text fill="#efefef" layoutX="295.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" wrappingWidth="99.20000000000005">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Text>

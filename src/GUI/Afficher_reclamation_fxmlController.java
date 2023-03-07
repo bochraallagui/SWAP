@@ -6,16 +6,28 @@
 package GUI;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import entities.Reclamation;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import services.serviceReclamation;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 /**
  * FXML Controller class
- *
+ * 
  * @author HP
  */
 public class Afficher_reclamation_fxmlController implements Initializable {
@@ -30,8 +42,63 @@ public class Afficher_reclamation_fxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         serviceReclamation s = new serviceReclamation();
         ObservableList<Reclamation> items = s.getall();
+        ObservableList<Reclamation> sortedList = FXCollections.observableArrayList(list_rec.getItems());
+        Comparator<Reclamation> comparator = Comparator.comparing(Reclamation::getobjectif);
+        sortedList.sort(comparator);
+      
+        list_rec.setItems(sortedList);
+
         list_rec.setItems(items);
+        
+        ObservableList<Reclamation> filteredItems = filterBadWords(items);
+        list_rec.setItems(filteredItems);
+
+
         // TODO
-    }    
-    
+        
+    }
+
+    @FXML
+    private void Trier(ActionEvent event) throws SQLException {
+        // Créer une Comparator personnalisée pour trier les réclamations par objet en ordre croissant
+        Comparator<Reclamation> comparator = Comparator.comparingInt(Reclamation::getId).reversed(); {
+
+        	ObservableList<Reclamation> sortedList = FXCollections.observableArrayList(list_rec.getItems());
+        	FXCollections.sort(sortedList, comparator);
+        	list_rec.setItems(sortedList);
+
+            // Réassigner la liste triée à la ListView
+            list_rec.setItems(list_rec.getItems());
+        }
+    }
+
+    private ObservableList<Reclamation> filterBadWords(ObservableList<Reclamation> items) {
+        // Liste de badwords à filtrer
+        List<String> badWords = Arrays.asList("badword1", "badword2", "badword3");
+
+        // Créer un prédicat pour filtrer les réclamations contenant des mots interdits
+        Predicate<Reclamation> filterPredicate = reclamation -> {
+            String objetif = reclamation.getobjectif();
+            String reclamationText = reclamation.gettext();
+            for (String badWord : badWords) {
+                if (objetif.contains(badWord) || reclamationText.contains(badWord)) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        // Utiliser la méthode filter() pour appliquer le prédicat et filtrer les réclamations
+        ObservableList<Reclamation> filteredItems = items.filtered(filterPredicate);
+
+        return filteredItems;
+    }
+    @FXML
+    private void handleClicks(ActionEvent event) {
+    }
+
+    @FXML
+    private void goToCategoryList(MouseEvent event) {
+    }
+
 }

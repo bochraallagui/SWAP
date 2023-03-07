@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entities.Reclamation;
+
 /**
  *
  * @author bochra
@@ -20,6 +22,7 @@ public interface IserviceReclamation<T> {
     public void supprimer(int t)throws SQLException; 
     public void modifier(T t);
     public ArrayList<T> afficher();
+    //public Reclamation rechercher(int t);
     
     
 }

@@ -176,6 +176,27 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
         }
         return u ;
     }
-}
+     
+     
+     //public Reclamation rechercher (int id) {
+       //  Reclamation p = new Reclamation();
+       //  try {
+         //    Statement stmt = connection.createStatement();
+           //  ResultSet result = stmt.executeQuery("SELECT * FROM reclamation  where id ="+id);
+             //while(result.next()) {
+               //  p.setId(result.getInt(1));
+                 //p.setobjectif(result.getString(2));
+                 //p.settext(result.getString(3));
+                
+             //}
+         //} catch (SQLException ex) {
+         //    System.out.println(ex.getMessage());
+         //}
+
+         //return p;
+     }
+     
+     
+
 
  

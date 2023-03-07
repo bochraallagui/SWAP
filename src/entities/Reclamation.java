@@ -42,7 +42,15 @@ public class Reclamation{
     
     //getters / setters
 
-    public int getId() {
+    public Reclamation(String text2, String objectif2, int iduser2, int id2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Reclamation(int id2, String filterBadWords, String filterBadWords2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId() {
         return id;
     }
 
@@ -81,6 +89,8 @@ public class Reclamation{
     public String toString() {
         return "Reclamation{" + "id=" + id + ",  obejectif=" + objectif +  ", text=" + text +  '}';
     }
+
+	
     
 }
 
