@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="646.0" prefWidth="870.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Afficher_reclamation_fxmlController">
+   <children>
+      <ListView fx:id="list_rec" layoutX="16.0" layoutY="27.0" prefHeight="534.0" prefWidth="831.0" />
+      <Button layoutX="718.0" layoutY="579.0" mnemonicParsing="false" onAction="#Trier" prefHeight="34.0" prefWidth="114.0" text="trier">
+         <font>
+            <Font name="Times New Roman Bold" size="19.0" />
+         </font></Button>
+      <Button layoutX="565.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Rechercher">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="searchField" layoutX="372.0" layoutY="580.0" prefHeight="32.0" prefWidth="166.0" promptText="objectif" />
+   </children>
+</AnchorPane>

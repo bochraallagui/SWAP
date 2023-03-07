@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="dist/EspritProject_Move.jar"/>
+	<classpathentry kind="lib" path="dist/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.base.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.media.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx.web.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/javafx-sdk-19.0.2.1/lib/javafx-swt.jar"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/tess4j-5.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/slf4j-api-2.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/commons-io-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/controlsfx-8.40.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/fontbox-2.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/itextpdf-5.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jai-imageio-core-1.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jar_files (3).zip"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jbig2-imageio-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jboss-logging-3.1.4.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jboss-vfs-3.2.17.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jfoenix-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jna-5.13.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/lept4j-1.18.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
