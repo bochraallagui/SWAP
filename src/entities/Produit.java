@@ -13,7 +13,7 @@ public class Produit {
     
     private int id_produit;
     private int prix_produit;
-    private String type_paiement, type_produit, description_produit;
+    private String type_paiement,type_produit, description_produit;
 
     public Produit() {
     }

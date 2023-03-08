@@ -43,7 +43,7 @@ public class ProduitService implements IService<Produit>{
         try {
             
             ste = connection.createStatement();
-            String req ="INSERT INTO produit(prix_produit`,type_paiement,`type_produit`,description_produit) VALUES ('"+t.getPrix_produit()+"',"+t.getType_paiement()+"',"+t.getType_produit()+"',"+t.getDescription_produit()+");";
+            String req ="INSERT INTO produit(prix_produit,type_paiement,type_produit,description_produit) VALUES ("+t.getPrix_produit()+",'"+t.getType_paiement()+"','"+t.getType_produit()+"','"+t.getDescription_produit()+"');";
             ste.executeUpdate(req);
             
             
@@ -82,9 +82,9 @@ public class ProduitService implements IService<Produit>{
         PreparedStatement pre = connection.prepareStatement("INSERT INTO produit (prix_produit,type_paiement,type_produit,description_produit) VALUES (?,?,?,?)");
      
         pre.setInt(1,(int) t.getPrix_produit());
-         pre.setString(2, t.getType_paiement());
-         pre.setString(3, t.getType_produit());
-         pre.setString(4, t.getDescription_produit());
+        pre.setString(2, t.getType_paiement());
+        pre.setString(3, t.getType_produit());
+        pre.setString(4, t.getDescription_produit());
         
         pre.executeUpdate();
         
@@ -124,12 +124,12 @@ public class ProduitService implements IService<Produit>{
 
             while (rs.next()) {
                 Produit p = new Produit();
-                p.setId_produit(rs.getInt(1));
-                p.setPrix_produit(rs.getInt(2));
+                p.setId_produit(rs.getInt("id_produit"));
+                p.setPrix_produit(rs.getInt("prix_produit"));
                 
-                p.setType_paiement(rs.getString("type paiement"));
-                p.setType_produit(rs.getString("type produit"));
-                p.setDescription_produit(rs.getString("description"));
+                p.setType_paiement(rs.getString("type_paiement"));
+                p.setType_produit(rs.getString("type_produit"));
+                p.setDescription_produit(rs.getString("description_produit"));
               
                Produits.add(p);
             }
@@ -137,6 +137,7 @@ public class ProduitService implements IService<Produit>{
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        System.out.println(Produits);
         return Produits;
     }
 

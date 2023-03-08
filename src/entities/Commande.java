@@ -4,32 +4,32 @@
  */
 package entities;
 
-import java.sql.Date;
+
 
 /**
  *
  * @author ichra
  */
 public class Commande {
-    private int id_commande, nbr_produit;
+    private int id_commande, nbr_produit,fk_id_livraison;
     private float total;
-    private Date date_commande;
+  
     
     public Commande(){
          
     }
     
-    public Commande(int id_commande, int nbr_produit, float total, Date date_commande) {
+    public Commande(int id_commande, int nbr_produit, float total, int fk_id_livraison) {
         this.id_commande = id_commande;
         this.nbr_produit = nbr_produit;
         this.total = total;
-        this.date_commande = date_commande;
+        this.fk_id_livraison = fk_id_livraison;
     }
 
-       public Commande( int nbr_produit, float total, Date date_commande) {
+       public Commande( int nbr_produit, float total, int fk_id_livraison) {
         this.nbr_produit = nbr_produit;
         this.total = total;
-        this.date_commande = date_commande;
+        this.fk_id_livraison = fk_id_livraison;
     }
 
     public int getId_commande() {
@@ -44,8 +44,8 @@ public class Commande {
         return total;
     }
 
-    public Date getDate_commande() {
-        return date_commande;
+    public int getFk_id_livraison() {
+        return fk_id_livraison;
     }
 
     public void setId_commande(int id_commande) {
@@ -60,19 +60,17 @@ public class Commande {
         this.total = total;
     }
 
-    public void setDate_commande(Date date_commande) {
-        this.date_commande = date_commande;
+    public void setFk_id_livraison(int fk_id_livraison) {
+        this.fk_id_livraison = fk_id_livraison;
     }
 
     @Override
     public String toString() {
-        return "Commande{" + "id_commande=" + id_commande + ", nbr_produit=" + nbr_produit + ", total=" + total + ", date_commande=" + date_commande + '}';
+        return "Commande{" + "id_commande=" + id_commande + ", nbr_produit=" + nbr_produit + ", fk_id_livraison=" + fk_id_livraison + ", total=" + total + '}';
     }
+
     
     
     
-    
-    
-    
-    
+     
 }

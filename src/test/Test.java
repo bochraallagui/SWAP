@@ -22,10 +22,10 @@ public class Test {
     	 MyDB db =MyDB.getInstance();
        
         
-            Produit p = new Produit( 1,350, "Achat", "Beauté","Parfum");
+            Produit p = new Produit(1,350, "Achat", "Beauté","Parfum");
             ProduitService ps = new ProduitService();
            
-        
+        ps.afficher();
             ps.ajouter2(p); 
             System.out.println(ps.afficher());
 

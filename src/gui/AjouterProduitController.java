@@ -70,13 +70,15 @@ public class AjouterProduitController implements Initializable {
     @FXML
     private Pane pnlOverview;
     @FXML
-    private TextArea Description_produit;
+    private TextArea Descriptionproduit;
     @FXML
-    private TextField Prix_produit;
+    private TextField prixproduit;
     @FXML
-    private TextField type;
+    private TextField typeproduit;
     @FXML
-    private TextField Prix_produit1;
+    private TextField typepaiement;
+    @FXML
+      private TextField idproduit;
    
 
     /**
@@ -89,14 +91,14 @@ public class AjouterProduitController implements Initializable {
 
     @FXML
     private void  addr(ActionEvent event) throws SQLException {
-               if (Prix_produit.getText().isEmpty() && Prix_produit1.getText().isEmpty() && descriptiontf.getText().isEmpty() )
+               if (typeproduit.getText().isEmpty() && typepaiement.getText().isEmpty() && Descriptionproduit.getText().isEmpty() )
                {
                 Alert a = new Alert(Alert.AlertType.ERROR, "données invalide(s)", ButtonType.OK);
             a.showAndWait();   
                }
                else { 
                    try{
-       Produit r1 = new Produit(Integer.parseInt(Prix_produit.getText()),Prix_produit1.getText(),type.getText(), Description_produit.getText()); 
+       Produit r1 = new Produit(Integer.parseInt(idproduit.getText()),Integer.parseInt(prixproduit.getText()),typeproduit.getText(), typepaiement.getText(),Descriptionproduit.getText()); 
         
 
         ProduitService s= new ProduitService();
@@ -115,7 +117,7 @@ public class AjouterProduitController implements Initializable {
        
            ProduitService s = new ProduitService();
        
-        s.supprimer(Integer.parseInt(id.getText()));
+        s.supprimer(Integer.parseInt(idproduit.getText()));
         
        
        
@@ -149,13 +151,13 @@ public class AjouterProduitController implements Initializable {
       String requete = "UPDATE produit SET prix_produit=?, type_paiement=?, type_produit=?, description_produit=? where id_produit=?";
             PreparedStatement pst = connection.prepareStatement(requete);
             
-            pst.setInt(1,Integer.parseInt(Prix_produit.getText()));
+            pst.setInt(1,Integer.parseInt(prixproduit.getText()));
             
-            pst.setString(2, type.getText());
-            pst.setString(2, Description_produit.getText());
-            pst.setString(2, descriptiontf.getText());
+            pst.setString(2, typepaiement.getText());
+            pst.setString(3, typeproduit.getText());
+             pst.setString(4, Descriptionproduit.getText());
             
-            pst.setInt(3,Integer.parseInt(id.getText()));
+            pst.setInt(5,Integer.parseInt(idproduit.getText()));
             pst.executeUpdate();
             System.out.println(" Produit Modifiée! ");
             Alert a = new Alert(Alert.AlertType.INFORMATION, "Modif effectue", ButtonType.OK);

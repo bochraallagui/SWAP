@@ -20,7 +20,7 @@ public interface IService<T> {
     public void ajouter(T  t) throws SQLException;
     public void ajouter2(T  t) throws SQLException;
     public void supprimer(int t)throws SQLException; 
-    public void modifier(T t);
+    public void modifier(T t)throws SQLException;
     public ArrayList<T> afficher();
    
     

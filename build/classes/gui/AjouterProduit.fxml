@@ -104,7 +104,7 @@
                                           <Font name="Times New Roman Bold" size="17.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="10.0" layoutY="101.0" prefHeight="20.0" prefWidth="124.0" text="Type_paiement" textFill="WHITE">
+                                    <Label layoutX="10.0" layoutY="101.0" prefHeight="20.0" prefWidth="124.0" text="type_paiement" textFill="WHITE">
                                        <font>
                                           <Font name="Times New Roman Bold" size="17.0" />
                                        </font>
@@ -143,11 +143,11 @@
                               <Font name="Times New Roman Bold" size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="id" layoutX="363.0" layoutY="198.0" prefHeight="25.0" prefWidth="236.0" promptText="id_produit" />
-                        <TextArea fx:id="Description_produit" layoutX="363.0" layoutY="385.0" prefHeight="50.0" prefWidth="236.0" promptText="description_produit" />
-                        <TextField fx:id="Prix_produit" layoutX="363.0" layoutY="288.0" prefHeight="25.0" prefWidth="236.0" promptText="prix_produit" />
-                        <TextField fx:id="type" layoutX="363.0" layoutY="239.0" prefHeight="25.0" prefWidth="236.0" promptText="type_produit" />
-                        <TextField fx:id="Prix_produit1" layoutX="363.0" layoutY="338.0" prefHeight="25.0" prefWidth="236.0" promptText="type_paiement" />
+                        <TextField fx:id="idproduit" layoutX="363.0" layoutY="198.0" prefHeight="25.0" prefWidth="236.0" promptText="id_produit" />
+                        <TextArea fx:id="Descriptionproduit" layoutX="363.0" layoutY="385.0" prefHeight="50.0" prefWidth="236.0" promptText="description_produit" />
+                        <TextField fx:id="prixproduit" layoutX="363.0" layoutY="288.0" prefHeight="25.0" prefWidth="236.0" promptText="prix_produit" />
+                        <TextField fx:id="typeproduit" layoutX="363.0" layoutY="239.0" prefHeight="25.0" prefWidth="236.0" promptText="type_produit" />
+                        <TextField fx:id="typepaiement" layoutX="363.0" layoutY="338.0" prefHeight="25.0" prefWidth="236.0" promptText="type_paiement" />
                      </children>
                   </Pane>
                </children>

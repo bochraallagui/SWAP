@@ -6,15 +6,13 @@
 package services;
 
 import entities.Commande;
-import interfaces.IServiceCommande;
+import interfaces.IService;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -25,7 +23,7 @@ import utils.MyDB;
  *
  * @author Skander
  */
-public class CommandeService implements IServiceCommande <Commande> {
+public class CommandeService implements IService <Commande> {
 
     Connection connection;
     Statement ste;
@@ -38,8 +36,8 @@ public class CommandeService implements IServiceCommande <Commande> {
     public void ajouter(Commande c) throws SQLException {
         try{
         ste = connection.createStatement();
-        String req = "INSERT INTO Commande(nbr_produit,total,date_commande) VALUES("
-                + "'" + c.getNbr_produit() + "','" + c.getTotal() + "'," + c.getDate_commande() + ")";
+        String req = "INSERT INTO commande(nbr_produit,total,fk_id_livraison) VALUES("
+                + "'" + c.getNbr_produit() + "','" + c.getTotal() + "'," + c.getFk_id_livraison() + ")";
         
         ste.executeUpdate(req);
     } catch (SQLException ex) {
@@ -49,12 +47,13 @@ public class CommandeService implements IServiceCommande <Commande> {
     @Override
     public void modifier(Commande c) throws SQLException {
         try{
-        String req = "UPDATE Commande SET nbr_produit = ?,total = ?,date_commande = ? where id_commande = ?";
+        String req = "UPDATE commande SET nbr_produit = ?,total = ?,fk_id_livraison = ? where id_commande = ?";
         PreparedStatement ps = connection.prepareStatement(req);
         ps.setFloat(1, c.getNbr_produit());
-        ps.setDate(2, c.getDate_commande());
-        ps.setFloat(3, c.getTotal());
-        ps.setInt(4, c.getId_commande());
+       
+        ps.setFloat(2, c.getTotal());
+        ps.setInt(3, c.getId_commande());
+         ps.setInt(4, c.getFk_id_livraison());
         ps.executeUpdate();
         
           System.out.println(" commande Modifiée! ");
@@ -67,14 +66,14 @@ public class CommandeService implements IServiceCommande <Commande> {
          public Commande Onerec(int id_commande) {
            Commande u = new Commande();
         try {
-            String req = "select * from commande where id_produit= "+id_commande;
+            String req = "select * from commande where id_commande= "+id_commande;
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 u.setId_commande(rs.getInt(1));
                 u.setNbr_produit(rs.getInt(2));
                 u.setTotal(rs.getFloat("total"));
-                u.setDate_commande(rs.getDate("date commande"));
+                u.setFk_id_livraison(rs.getInt(1));
                 
                
                
@@ -88,24 +87,25 @@ public class CommandeService implements IServiceCommande <Commande> {
         return u ;
     }
 
-    
+        
 /*
     @Override
     public List<Commande> recuperer(Commande c) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+         
 */
-        
+         
+         
+         
     
-
-    
-    /**
+    /*
     public void supprimer(Commande c) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.}
      * @param id_commande          
      * @throws java.sql.SQLException          
     */
+         
     @Override
      public void supprimer(int id_commande) throws SQLException{
       try{ 
@@ -122,36 +122,15 @@ public class CommandeService implements IServiceCommande <Commande> {
     
     
 
-/*
-    @Override
-    public List<Commande> recuperer(Commande c) throws SQLException {
-        List<Commande> personnes = new ArrayList<>();
-        String s = "select * from commande";
-        Statement st = connection.createStatement();
-        ResultSet rs =  st.executeQuery(s);
-        while(rs.next()){
-            Commande o = new Commande();
-            o.setNbr_produit(rs.getInt("Nbr_produit"));
-            o.setTotal(rs.getFloat("Total"));
-            o.setDate_commande(rs.getDate("Date_commande"));
-            o.setId_commande(rs.getInt("Id_commande"));
-            
-            
-            personnes.add(o);
-            
-        }
-        return personnes;
-    }
-*/
 
     
     @Override
     public void ajouter2(Commande c) throws SQLException {
-        PreparedStatement pre = connection.prepareStatement("INSERT INTO commande (nbr_produit,total,date_commande) VALUES (?,?,?)");
+        PreparedStatement pre = connection.prepareStatement("INSERT INTO commande (nbr_produit,total,fk_id_livraison) VALUES (?,?,?)");
      
         pre.setInt(1,(int) c.getNbr_produit());
         pre.setFloat(2, c.getTotal());
-        pre.setDate(3, c.getDate_commande());
+        pre.setInt(3, c.getFk_id_livraison());
          
         pre.executeUpdate();
         
@@ -170,11 +149,12 @@ public class CommandeService implements IServiceCommande <Commande> {
             int nbr_produit = res.getInt(2);
             
             Float total = res.getFloat(3);
-            Date date_commande = res.getDate(4);
+            int fk_id_livraison = res.getInt(4);
+            
             
              
 
-            Commande rec = new Commande(id_commande,nbr_produit,total,date_commande);
+            Commande rec = new Commande(id_commande,nbr_produit,total,fk_id_livraison);
             list_commande.add(rec);
         }
         }catch(SQLException ex){
@@ -197,7 +177,7 @@ public class CommandeService implements IServiceCommande <Commande> {
                 c.setNbr_produit(rs.getInt(2));
                 
                 c.setTotal(rs.getFloat(3));
-                c.setDate_commande(rs.getDate(4));
+                c.setFk_id_livraison(rs.getInt(4));
                 
               
                Commandes.add(c);
@@ -213,23 +193,3 @@ public class CommandeService implements IServiceCommande <Commande> {
     
 }   
 
-   
-/*
-    @Override
-    public ArrayList<Commande> afficher() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-  */  
-/*
-    @Override
-    public void supprimer(Commande c) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Commande> recuperer(Commande c) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-}*/
