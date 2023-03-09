@@ -35,6 +35,15 @@ import utils.MyDB;
  * @author ichra
  */
 public class AjouterCommandeController implements Initializable {
+    private Commande commande;
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
 
     @FXML
     private Button btnutilisateurs;
@@ -68,7 +77,11 @@ public class AjouterCommandeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if(commande!=null){
+        txt_nbr.setText(Integer.toString(commande.getNbr_produit()));
+        txt_total.setText(Float.toString(commande.getTotal()));
+        txt_idlivraison.setText(Integer.toString(commande.getFk_id_livraison()));
+        }
     }    
 
     @FXML
@@ -106,7 +119,23 @@ public class AjouterCommandeController implements Initializable {
 
     @FXML
     private void ModifierCommande(ActionEvent event) throws SQLException {
-   
+        if (txt_nbr.getText().isEmpty() && txt_total.getText().isEmpty()) {
+        Alert a = new Alert(Alert.AlertType.ERROR, "données invalide(s)", ButtonType.OK);
+        a.showAndWait();            
+    } else {            
+        try {
+            Commande r1 = new Commande(Integer.parseInt(txt_nbr.getText()), Integer.parseInt(txt_total.getText()), Integer.parseInt(txt_idlivraison.getText()));
+            r1.setId_commande(commande.getId_commande()); // set the id of the existing commande
+            
+            CommandeService s = new CommandeService();
+            s.modifier(r1);                
+            Alert a = new Alert(Alert.AlertType.INFORMATION, "Modification effectuée", ButtonType.OK);
+            a.showAndWait();                
+        } catch (SQLException ex) {
+            Alert a = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
+            a.showAndWait();
+        }
+    }
 
     }
 

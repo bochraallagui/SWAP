@@ -28,7 +28,7 @@ public class NewFXMain3 extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
              
-    Parent root = FXMLLoader.load(getClass().getResource("AjouterCommande.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("AfficherCommande.fxml"));
     primaryStage.setTitle("Gérer les produits");
     primaryStage.setScene(new Scene(root));
     primaryStage.show();

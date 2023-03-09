@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherProduitController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherProduitController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;">
          <children>
@@ -103,11 +103,9 @@
                               <TableColumn fx:id="tab_type" prefWidth="75.0" text="Type" />
                               <TableColumn fx:id="tab_description" prefWidth="75.0" text="Description" />
                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
                         </TableView>
                         <Button fx:id="btn_supprimer" layoutX="43.0" layoutY="499.0" mnemonicParsing="false" onAction="#supp" text="Supprimer" />
+                        <Button fx:id="btn_modif" layoutX="141.0" layoutY="499.0" mnemonicParsing="false" onAction="#modif" text="Modifier" />
                      </children>
                   </Pane>
                </children>

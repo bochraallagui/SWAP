@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterProduitController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterProduitController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;">
          <children>
@@ -128,22 +128,11 @@
                               <Font name="Times New Roman Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="465.0" layoutY="462.0" mnemonicParsing="false" onAction="#delrec" prefHeight="25.0" prefWidth="95.0" text="Supprimer">
-                           <font>
-                              <Font name="Times New Roman Bold" size="15.0" />
-                           </font>
-                        </Button>
                         <Button layoutX="330.0" layoutY="504.0" mnemonicParsing="false" onAction="#afficher" prefHeight="25.0" prefWidth="134.0" text="Afficher ">
                            <font>
                               <Font name="Times New Roman Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Label layoutX="167.0" layoutY="200.0" prefHeight="20.0" prefWidth="112.0" text="Id_produit" textFill="WHITE">
-                           <font>
-                              <Font name="Times New Roman Bold" size="17.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="idproduit" layoutX="363.0" layoutY="198.0" prefHeight="25.0" prefWidth="236.0" promptText="id_produit" />
                         <TextArea fx:id="Descriptionproduit" layoutX="363.0" layoutY="385.0" prefHeight="50.0" prefWidth="236.0" promptText="description_produit" />
                         <TextField fx:id="prixproduit" layoutX="363.0" layoutY="288.0" prefHeight="25.0" prefWidth="236.0" promptText="prix_produit" />
                         <TextField fx:id="typeproduit" layoutX="363.0" layoutY="239.0" prefHeight="25.0" prefWidth="236.0" promptText="type_produit" />

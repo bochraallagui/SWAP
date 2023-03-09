@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package gui;
+
+import entities.Commande;
 import entities.Produit;
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +38,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.scene.layout.Pane;
+
 /**
  * FXML Controller class
  *
@@ -43,11 +46,16 @@ import javafx.scene.layout.Pane;
  */
 public class AjouterProduitController implements Initializable {
 
+    private Produit produitt;
 
-    @FXML
-    private TextField id;
-     
-   
+    public Produit getProduit() {
+        return produitt;
+    }
+
+    public void setProduit(Produit produitt) {
+        this.produitt = produitt;
+    }
+
     private TextField descriptiontf;
     @FXML
     private Button user;
@@ -77,93 +85,69 @@ public class AjouterProduitController implements Initializable {
     private TextField typeproduit;
     @FXML
     private TextField typepaiement;
-    @FXML
-      private TextField idproduit;
-   
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
-    }    
+        if (produitt != null) {
+            Descriptionproduit.setText(produitt.getDescription_produit());
+            prixproduit.setText(Integer.toString(produitt.getPrix_produit()));
+            typeproduit.setText(produitt.getType_produit());
+            typepaiement.setText(produitt.getType_paiement());
+        }
+
+    }
 
     @FXML
-    private void  addr(ActionEvent event) throws SQLException {
-               if (typeproduit.getText().isEmpty() && typepaiement.getText().isEmpty() && Descriptionproduit.getText().isEmpty() )
-               {
-                Alert a = new Alert(Alert.AlertType.ERROR, "données invalide(s)", ButtonType.OK);
-            a.showAndWait();   
-               }
-               else { 
-                   try{
-       Produit r1 = new Produit(Integer.parseInt(idproduit.getText()),Integer.parseInt(prixproduit.getText()),typeproduit.getText(), typepaiement.getText(),Descriptionproduit.getText()); 
-        
+    private void addr(ActionEvent event) throws SQLException {
+        if (typeproduit.getText().isEmpty() && typepaiement.getText().isEmpty() && Descriptionproduit.getText().isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.ERROR, "données invalide(s)", ButtonType.OK);
+            a.showAndWait();
+        } else {
+            try {
+                Produit r1 = new Produit(Integer.parseInt(prixproduit.getText()), typeproduit.getText(), typepaiement.getText(), Descriptionproduit.getText());
 
-        ProduitService s= new ProduitService();
-        s.ajouter2(r1);    
-         Alert a = new Alert(Alert.AlertType.INFORMATION, "Ajout effectué", ButtonType.OK);
-            a.showAndWait();   
-    }
-              catch (SQLException ex) {
+                ProduitService s = new ProduitService();
+                s.ajouter2(r1);
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Ajout effectué", ButtonType.OK);
+                a.showAndWait();
+            } catch (SQLException ex) {
                 Alert a = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
                 a.showAndWait();
-              }
-               }
+            }
+        }
     }
-    @FXML
-    private void delrec(ActionEvent event) throws SQLException {
-       
-           ProduitService s = new ProduitService();
-       
-        s.supprimer(Integer.parseInt(idproduit.getText()));
-        
-       
-       
-               }
 
-    
-    
     @FXML
     private void afficher(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-         fxmlLoader.setLocation(getClass().getResource("AfficherProduitController.fxml"));
-          AnchorPane anchorPane;
-          anchorPane = fxmlLoader.load();
-          Stage stage = new Stage();
+        fxmlLoader.setLocation(getClass().getResource("AfficherProduitController.fxml"));
+        AnchorPane anchorPane;
+        anchorPane = fxmlLoader.load();
+        Stage stage = new Stage();
         stage.setScene(new Scene(anchorPane));
         stage.show();
         ProduitService s = new ProduitService();
-        
-        
-        
+
     }
 
     @FXML
     private void modif(ActionEvent event) throws SQLException {
-        Connection connection;
-    Statement ste;
-    connection = MyDB.getInstance().getCon();
+        if (produitt == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Aucun produit sélectionné", ButtonType.OK);
+            a.showAndWait();
+            return;
+        }
         ProduitService s = new ProduitService();
-      Produit r = new Produit();  
-      r=s.Onerec(Integer.parseInt(id.getText()));
-      String requete = "UPDATE produit SET prix_produit=?, type_paiement=?, type_produit=?, description_produit=? where id_produit=?";
-            PreparedStatement pst = connection.prepareStatement(requete);
-            
-            pst.setInt(1,Integer.parseInt(prixproduit.getText()));
-            
-            pst.setString(2, typepaiement.getText());
-            pst.setString(3, typeproduit.getText());
-             pst.setString(4, Descriptionproduit.getText());
-            
-            pst.setInt(5,Integer.parseInt(idproduit.getText()));
-            pst.executeUpdate();
-            System.out.println(" Produit Modifiée! ");
-            Alert a = new Alert(Alert.AlertType.INFORMATION, "Modif effectue", ButtonType.OK);
-            a.showAndWait();  
+        Produit updatedProduit = new Produit(Integer.parseInt(prixproduit.getText()), typeproduit.getText(),
+                typepaiement.getText(), Descriptionproduit.getText());
+        updatedProduit.setId_produit(produitt.getId_produit());
+        s.modifier(updatedProduit);
+        Alert a = new Alert(Alert.AlertType.INFORMATION, "Produit modifié", ButtonType.OK);
+        a.showAndWait();
     }
-    
 
     @FXML
     private void handleClicks(ActionEvent event) {
@@ -172,8 +156,5 @@ public class AjouterProduitController implements Initializable {
     @FXML
     private void goToCategoryList(MouseEvent event) {
     }
- 
 
-    
-    
 }
