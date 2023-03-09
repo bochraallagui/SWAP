@@ -13,8 +13,8 @@
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="934.0" style="-fx-background-color: #7B241C;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReponsefxmlController">
    <children>
 
-      <TextField fx:id="message_repTf" layoutX="411.0" layoutY="230.0" prefHeight="122.0" prefWidth="279.0" promptText="message_rep" />
-      <TextField fx:id="etatTf" layoutX="384.0" layoutY="419.0" prefHeight="21.0" prefWidth="308.0" promptText="etat" />
+      <TextField fx:id="message_repTf" layoutX="380.0" layoutY="337.0" prefHeight="122.0" prefWidth="279.0" promptText="message_rep" />
+      <TextField fx:id="etatTf" layoutX="380.0" layoutY="485.0" prefHeight="21.0" prefWidth="308.0" promptText="etat" />
       <Button layoutX="306.0" layoutY="619.0" mnemonicParsing="false" onAction="#addr" prefHeight="32.0" prefWidth="198.0" text="Ajouter la reponse">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
@@ -24,12 +24,12 @@
             <Font name="Times New Roman Bold" size="48.0" />
          </font>
       </Text>
-      <Text fx:id="objectif" fill="#f7f7f7" layoutX="290.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="message-rep">
+      <Text fx:id="objectif" fill="#f7f7f7" layoutX="284.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="message-rep">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Text>
-      <Text fill="#e4e4e4" layoutX="290.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" wrappingWidth="62.23828125">
+      <Text fill="#e4e4e4" layoutX="290.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" wrappingWidth="62.23828125">
          <font>
             <Font name="Times New Roman Bold" size="19.0" />
          </font>
@@ -42,8 +42,8 @@
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Button>
-      <TextField fx:id="idrepTf" layoutX="411.0" layoutY="166.0" prefHeight="26.0" prefWidth="272.0" promptText="id reponse" />
-      <Text fill="#efefef" layoutX="295.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id reponse" wrappingWidth="99.20000000000005">
+      <TextField fx:id="idrectf" layoutX="411.0" layoutY="166.0" prefHeight="26.0" prefWidth="272.0" promptText="id_reclamation" />
+      <Text fill="#efefef" layoutX="295.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fk_id_reclamation" wrappingWidth="99.20000000000005">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Text>
@@ -51,7 +51,7 @@
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font></Button>
-      <TextField fx:id="idrep" layoutX="750.0" layoutY="165.0" prefHeight="26.0" prefWidth="166.0" promptText="idrep" />
+      <TextField fx:id="idreptf" layoutX="750.0" layoutY="165.0" prefHeight="26.0" prefWidth="166.0" promptText="id_reclamation" />
       <VBox alignment="TOP_CENTER" prefHeight="746.0" prefWidth="272.0" style="-fx-background-color: #ffff;">
          <children>
             <ImageView fitHeight="63.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
@@ -117,5 +117,11 @@
             </Button>
          </children>
       </VBox>
+      <TextField fx:id="idadmintf" layoutX="394.0" layoutY="258.0" prefHeight="26.0" prefWidth="279.0" promptText="id_admin" />
+      <Text fill="#fffbfb" layoutX="291.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fk_id_admin" wrappingWidth="89.68994140625">
+         <font>
+            <Font name="Times New Roman Bold" size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

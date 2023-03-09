@@ -33,7 +33,7 @@ public class test {
 //        
  serviceReclamation sr = new serviceReclamation();
  serviceReponse sc = new serviceReponse();
- Reponse c = new Reponse(12,13,"bochra",14);
+ Reponse c = new Reponse(13,11,"bochra",5,"etat");
  
  sc.ajouter2(c);
  System.out.println(sc.afficher());

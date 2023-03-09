@@ -10,8 +10,18 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,7 +42,9 @@ import javafx.collections.ObservableList;
  * @author HP
  */
 public class Afficher_reclamation_fxmlController implements Initializable {
-
+	@FXML
+    private TextField maail;
+ 
     @FXML
     private ListView<Reclamation> list_rec;
     @FXML
@@ -41,6 +53,7 @@ public class Afficher_reclamation_fxmlController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         serviceReclamation s = new serviceReclamation();
@@ -64,7 +77,7 @@ public class Afficher_reclamation_fxmlController implements Initializable {
     @FXML
     private void Trier(ActionEvent event) throws SQLException {
         // Créer une Comparator personnalisée pour trier les réclamations par objet en ordre croissant
-        Comparator<Reclamation> comparator = Comparator.comparingInt(Reclamation::getId).reversed(); {
+        Comparator<Reclamation> comparator = Comparator.comparingInt(Reclamation::getId_rec).reversed(); {
 
         	ObservableList<Reclamation> sortedList = FXCollections.observableArrayList(list_rec.getItems());
         	FXCollections.sort(sortedList, comparator);
@@ -81,10 +94,10 @@ public class Afficher_reclamation_fxmlController implements Initializable {
 
         // Créer un prédicat pour filtrer les réclamations contenant des mots interdits
         Predicate<Reclamation> filterPredicate = reclamation -> {
-            String objetif = reclamation.getobjectif();
+            String objectif = reclamation.getobjectif();
             String reclamationText = reclamation.gettext();
             for (String badWord : badWords) {
-                if (objetif.contains(badWord) || reclamationText.contains(badWord)) {
+                if (objectif.contains(badWord) || reclamationText.contains(badWord)) {
                     return false;
                 }
             } 
@@ -112,7 +125,8 @@ public class Afficher_reclamation_fxmlController implements Initializable {
     }}
     
     
-    
+   
+
     @FXML
     private void handleClicks(ActionEvent event) {
     }

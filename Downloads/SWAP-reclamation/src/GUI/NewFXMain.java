@@ -6,6 +6,13 @@
 package GUI;
 
 import java.io.IOException;
+import java.util.Properties;
+
+import javax.mail.MessagingException;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,13 +29,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author HP
+ * @author bochra
  */
 public class NewFXMain extends Application {
         @Override
     public void start(Stage primaryStage) {
-        try {
-            Parent root =FXMLLoader.load(getClass().getResource("reclamationfxml.fxml"));
+        try { 
+            Parent root =FXMLLoader.load(getClass().getResource("reponse.fxml"));
             Scene scene =new Scene(root);
             
             primaryStage.setTitle("Gérer les reclamations ");
@@ -41,6 +48,8 @@ public class NewFXMain extends Application {
         }
     }
     
+               
+
     /*@Override
     public void start(Stage primaryStage) {
         Button btn = new Button();

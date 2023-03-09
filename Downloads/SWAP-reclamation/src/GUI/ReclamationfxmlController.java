@@ -48,7 +48,7 @@ public class ReclamationfxmlController implements Initializable {
     @FXML
     private TextField tftxt;
     @FXML
-    private TextField id;
+    private TextField idrec;
      
     @FXML
     private TextField iduser;
@@ -57,7 +57,8 @@ public class ReclamationfxmlController implements Initializable {
     @FXML
     private Text objectif;
     @FXML
-    private TextField idrec;
+    private TextField fk_id_utilisateurtf ;
+    
     
 
     /**
@@ -68,7 +69,7 @@ public class ReclamationfxmlController implements Initializable {
     	  
     
     }    
-
+ 
     @FXML
     private void  addr(ActionEvent event) throws SQLException {
                if (tfobj.getText().isEmpty() && tftxt.getText().isEmpty() )
@@ -78,7 +79,7 @@ public class ReclamationfxmlController implements Initializable {
                }
                else { 
                    try{
-        Reclamation r1 = new Reclamation(tfobj.getText(),tftxt.getText(), Integer.parseInt(id.getText())); 
+        Reclamation r1 = new Reclamation(tfobj.getText(),tftxt.getText(), Integer.parseInt(fk_id_utilisateurtf.getText())); 
         
 
         serviceReclamation s= new serviceReclamation();
@@ -128,7 +129,7 @@ public class ReclamationfxmlController implements Initializable {
         serviceReclamation s = new serviceReclamation();
       Reclamation r = new Reclamation();  
       r=s.Onerec(Integer.parseInt(idrec.getText()));
-      String requete = "UPDATE reclamation SET objectif=?, text=? where id=?";
+      String requete = "UPDATE reclamation SET objectif=?, text=? where id_rec=?";
             PreparedStatement pst = connection.prepareStatement(requete);
             
         

@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="694.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RSSController">
    <children>
-      <Label fx:id="txtRSS" layoutX="7.0" layoutY="4.0" prefHeight="675.0" prefWidth="920.0" />
+      <Label fx:id="txtRSS" layoutX="23.0" layoutY="17.0" prefHeight="662.0" prefWidth="904.0" />
       <ImageView fitHeight="90.0" fitWidth="204.0" layoutX="723.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@swap%20logo.png" />

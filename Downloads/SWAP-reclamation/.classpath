@@ -33,5 +33,9 @@
 	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jfoenix-1.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jna-5.13.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/lept4j-1.18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/wetransfer_javax-mail-jar_2023-03-06_0112/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/wetransfer_javax-mail-jar_2023-03-06_0112/TrayTester.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/wetransfer_javax-mail-jar_2023-03-08_2018/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bochr/Downloads/jaf-1_1_1/jaf-1.1.1/activation.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

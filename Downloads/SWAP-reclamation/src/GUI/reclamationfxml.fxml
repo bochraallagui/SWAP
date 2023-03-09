@@ -38,11 +38,11 @@
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Button>
-      <Button layoutX="467.0" layoutY="542.0" mnemonicParsing="false" onAction="#afficher" prefHeight="26.0" prefWidth="186.0" text="Afficher">
+      <Button layoutX="732.0" layoutY="416.0" mnemonicParsing="false" onAction="#afficher" prefHeight="26.0" prefWidth="186.0" text="Afficher">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font></Button>
-      <TextField fx:id="id" layoutX="411.0" layoutY="166.0" prefHeight="26.0" prefWidth="272.0" promptText="id reclamation" />
+      <TextField fx:id="fk_id_utilisateurtf" layoutX="411.0" layoutY="166.0" prefHeight="26.0" prefWidth="272.0" promptText="id" />
       <Text fill="#efefef" layoutX="295.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" wrappingWidth="99.20000000000005">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
@@ -51,7 +51,7 @@
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font></Button>
-      <TextField fx:id="idrec" layoutX="750.0" layoutY="165.0" prefHeight="26.0" prefWidth="166.0" promptText="idrec" />
+      <TextField fx:id="idrec" layoutX="750.0" layoutY="165.0" prefHeight="26.0" prefWidth="166.0" promptText="id" />
       <VBox alignment="TOP_CENTER" prefHeight="746.0" prefWidth="272.0" style="-fx-background-color: #ffff;">
          <children>
             <ImageView fitHeight="63.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">

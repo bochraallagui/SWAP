@@ -10,23 +10,23 @@ package entities;
  * @author bochra
  */
 public class Reclamation{
-    private int id;
+    private int id_rec;
     private String objectif ;
     private String text ; 
-    private int iduser;
+    private int fk_id_utilisateur;
 
-    public Reclamation( String objectif ,String text,int iduser) {
+    public Reclamation( String objectif ,String text,int fk_id_utilisateur) {
   
         this.objectif= objectif;
         this.text= text;
-        this.iduser=iduser;
+        this.fk_id_utilisateur=fk_id_utilisateur;
     }
 
-    public Reclamation(int id, String objectif ,String text ,int iduser) {
-        this.id = id;
+    public Reclamation(int id_rec, String objectif ,String text ,int fk_id_utilisateur) {
+        this.id_rec = id_rec;
         this.objectif= objectif;
         this.text= text; 
-        this.iduser=iduser;
+        this.fk_id_utilisateur=fk_id_utilisateur;
        
     }
 
@@ -42,20 +42,20 @@ public class Reclamation{
     
     //getters / setters
 
-    public Reclamation(String text2, String objectif2, int iduser2, int id2) {
+    public Reclamation(String text2, String objectif2, int id2, int id_rec2) {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reclamation(int id2, String filterBadWords, String filterBadWords2) {
+	public Reclamation(int id_rec2, String filterBadWords, String filterBadWords2) {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-        return id;
+	public int getId_rec() {
+        return id_rec;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_rec(int id_rec) {
+        this.id_rec = id_rec;
     }
 
   
@@ -76,22 +76,22 @@ public class Reclamation{
         this.text= text ;
     }
     
-    public  int getiduser() {
-        return iduser;
+    public  int getfk_id_utilisateur() {
+        return fk_id_utilisateur;
     }
 
-    public void setiduser(int iduser) {
-        this.iduser = iduser;
+    public void setfk_id_utilisateur(int fk_id_utilisateur) {
+        this.fk_id_utilisateur = fk_id_utilisateur;
     }
     
     //toString
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ",  obejectif=" + objectif +  ", text=" + text +  '}';
-    }
+        return "Reclamation{" + "id_rec=" + id_rec + ",  objectif=" + objectif +  ", text=" + text + ", fk_id_utilisateur=" + fk_id_utilisateur + '}';
+    }}
 
 	
     
-}
+
 
 

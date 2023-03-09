@@ -43,7 +43,7 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
         try {
             
             ste = connection.createStatement();
-            String req ="INSERT INTO reclamation(objectif`,`text`) VALUES ('"+t.getobjectif()+"',"+t.gettext()+");";
+            String req ="INSERT INTO reclamation(fk_id_utilisateur,objectif`,`text`) VALUES ('"+t.getfk_id_utilisateur()+",'"+t.getobjectif()+"','"+t.gettext()+"');";
             ste.executeUpdate(req);
             
             
@@ -63,9 +63,9 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
  
  
      @Override
-    public void supprimer(int id) throws SQLException{
+    public void supprimer(int id_rec) throws SQLException{
       try{ 
-          String req = "DELETE FROM reclamation WHERE id ="+id;
+          String req = "DELETE FROM reclamation WHERE id_rec ="+id_rec;
         ste = connection.createStatement();
         ste.executeUpdate(req);
          Alert a = new Alert(Alert.AlertType.INFORMATION, "Suppression effectuée", ButtonType.OK);
@@ -76,7 +76,7 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
               }
                }
     
-
+ 
    @Override
     public void ajouter2(Reclamation t) throws SQLException {
         PreparedStatement pre = connection.prepareStatement("INSERT INTO reclamation (`objectif`,`text`) VALUES (?,?)");
@@ -97,13 +97,13 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
         String req_select="SELECT * FROM reclamation";
         ResultSet res = ste.executeQuery(req_select);
         while(res.next()){
-            int id = res.getInt(1);
+            int fk_id_utilisateur = res.getInt("fk_id_reclamation");
             
             String objectif = res.getString("objectif");
             String text = res.getString("text");
              
 
-            Reclamation rec = new Reclamation(text,objectif,id);
+            Reclamation rec = new Reclamation(fk_id_utilisateur,objectif,text);
             listrec.add(rec);
         }
         }catch(SQLException ex){
@@ -121,8 +121,8 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
 
             while (rs.next()) {
                 Reclamation p = new Reclamation();
-                p.setId(rs.getInt(1));
-                
+                p.setfk_id_utilisateur(rs.getInt("fk_id_utilisateur"));
+                p.setId_rec(rs.getInt("id_rec"));
                 p.setobjectif(rs.getString("objectif"));
                 p.settext(rs.getString("text"));
               
@@ -140,9 +140,9 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
     @Override
     public void modifier(Reclamation t) {
       try {
-            String requete = "UPDATE reclamation SET objectif=?, text=? where id=?";
+            String requete = "UPDATE reclamation SET objectif=?, text=? where id_rec=?";
             PreparedStatement pst = connection.prepareStatement(requete);
-            pst.setInt(3, t.getId());
+            pst.setInt(3, t.getId_rec());
         
             pst.setString(1, t.getobjectif());
             
@@ -155,14 +155,14 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
             System.err.println(ex.getMessage());
         }    
     }
-     public Reclamation Onerec(int id) {
+     public Reclamation Onerec(int fk_id_utilisateur) {
            Reclamation u = new Reclamation();
         try {
-            String req = "select * from reclamation where id= "+id;
+            String req = "select * from reclamation where fk_id_utilisateur= "+fk_id_utilisateur;
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                u.setId(rs.getInt(1));
+                u.setfk_id_utilisateur(rs.getInt("fk_id_utilisateur"));
                 u.setobjectif(rs.getString("objectif"));
                 u.settext(rs.getString("text"));
                ;
@@ -188,7 +188,7 @@ public class serviceReclamation implements IserviceReclamation<Reclamation>{
     	        p.setobjectif(rs.getString("objectif"));
     	        p.settext(rs.getString("text"));
     	        
-    	        p.setId(rs.getInt("id"));
+    	        p.setfk_id_utilisateur(rs.getInt("fk_id_utilisateur"));
     	        reclamations.add(p);
     	    }
     	    return reclamations;
