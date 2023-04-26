@@ -1,0 +1,42 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Liste des réclamations{% endblock %}
+
+{% block body %}
+    <h1>Liste des réclamations</h1>
+    
+        <div class="form-group">
+            <input type="text" name="q" id="searchTerm" class="form-control" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdRec</th>
+                <th>Objectif</th>
+                <th>Text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td>{{ reclamation.idRec }}</td>
+                <td>{{ reclamation.objectif }}</td>
+                <td>{{ reclamation.text }}</td>
+                <td>
+                    <a href="{{ path('app_reponse_new', {'id': reclamation.idRec}) }}" class="btn btn-primary">
+                        Ajouter une réponse
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

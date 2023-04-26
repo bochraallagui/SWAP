@@ -1,0 +1,63 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block body %}
+    <h1>Reponse index</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>IdReponse</th>
+            <th>MessageRep</th>
+            <th>Etat</th>
+            <th>FkIdAdmin</th>
+            <th>FkIdReclamation</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reponse in pagination %}
+        <tr>
+            <td>{{ reponse.idReponse }}</td>
+            <td>{{ reponse.messageRep }}</td>
+            <td>{{ reponse.etat }}</td>
+            <td>{{ reponse.fkIdAdmin }}</td>
+            <td>{{ reponse.fkIdReclamation }}</td>
+            <td>
+                <a href="{{ path('app_reponse_show', {'idReponse': reponse.idReponse}) }}">show</a>
+                <a href="{{ path('app_reponse_edit', {'idReponse': reponse.idReponse}) }}">edit</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+        {% endfor %}
+    {% if pagination.getPageCount() > 1 %}
+    <nav aria-label="...">
+        <ul class="pagination">
+            {% if pagination.getCurrentPageNumber() != 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ path('app_reponse_index', {'page': pagination.getCurrentPageNumber() - 1}) }}">Précédent</a>
+            </li>
+            {% endif %}
+            {% for page in 1..pagination.getPageCount() %}
+                {% if page <= 10 %}
+                <li class="page-item {% if pagination.getCurrentPageNumber() == page %}active{% endif %}">
+                    <a class="page-link" href="{{ path('app_reponse_index', {'page': page}) }}">{{ page }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            {% if pagination.getCurrentPageNumber() != pagination.getPageCount() %}
+            <li class="page-item">
+                <a class="page-link" href="{{ path('app_reponse_index', {'page': pagination.getCurrentPageNumber() + 1}) }}">Suivant</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+    </tbody>
+</table>
+
+<a href="{{ path('app_reponse_new') }}">Ajouter votre réponse</a>
+
+{% endblock %}

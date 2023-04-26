@@ -1,0 +1,52 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Rechercher une réclamation{% endblock %}
+
+{% block body %}
+    <h1>Rechercher une réclamation</h1>
+
+    <form action="{{ path('app_reclamation_search') }}" method="GET">
+        <div class="form-group">
+            <label for="searchTerm">Rechercher</label>
+            <input type="text" name="q" id="searchTerm" class="form-control" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+
+    {% if reclamations is not empty %}
+        <h2>Résultats de la recherche pour "{{ searchTerm }}" :</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>IdRec</th>
+                    <th>Objectif</th>
+                    <th>Text</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reclamation in reclamations %}
+                    <tr>
+                        <td>{{ reclamation.idRec }}</td>
+                        <td>{{ reclamation.objectif }}</td>
+                        <td>{{ reclamation.text }}</td>
+                        <td>
+                            <a href="{{ path('app_reclamation_front_show', {'idRec': reclamation.idRec}) }}" class="btn btn-primary">
+                                Afficher
+                            </a>
+                            <a href="{{ path('app_reclamation_front_edit', {'idRec': reclamation.idRec}) }}" class="btn btn-secondary">
+                                Modifier
+                            </a>
+                            <form action="{{ path('app_reclamation_front_delete', {'idRec': reclamation.idRec}) }}" method="POST" style="display: inline-block;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ reclamation.idRec) }}">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette réclamation ?')">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

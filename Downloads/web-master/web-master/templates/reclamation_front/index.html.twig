@@ -1,0 +1,38 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block body %}
+    <h1></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdRec</th>
+                <th>Objectif</th>
+                <th>Text</th>
+                <th>FkIdUtilisateur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td>{{ reclamation.idRec }}</td>
+                <td>{{ reclamation.objectif }}</td>
+                <td>{{ reclamation.text }}</td>
+                <td>{{ reclamation.fkIdUtilisateur }}</td>
+                <td>
+                    <a href="{{ path('app_reclamation_front_show', {'idRec': reclamation.idRec}) }}">show</a>
+                    <a href="{{ path('app_reclamation_front_edit', {'idRec': reclamation.idRec}) }}">edit</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reclamation_front_new') }}">Create new</a>
+{% endblock %}

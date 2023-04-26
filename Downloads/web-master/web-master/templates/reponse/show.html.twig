@@ -1,0 +1,36 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block body %}
+    <h1>Reponse</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdReponse</th>
+                <td>{{ reponse.idReponse }}</td>
+            </tr>
+            <tr>
+                <th>MessageRep</th>
+                <td>{{ reponse.messageRep }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ reponse.etat }}</td>
+            </tr>
+            <tr>
+                <th>FkIdAdmin</th>
+                <td>{{ reponse.fkIdAdmin }}</td>
+            </tr>
+            <tr>
+                <th>FkIdReclamation</th>
+                <td>{{ reponse.fkIdReclamation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reponse_index') }}">back to list</a>
+
+    <a href="{{ path('app_reponse_edit', {'idReponse': reponse.idReponse}) }}">edit</a>
+
+    {{ include('reponse/_delete_form.html.twig') }}
+{% endblock %}

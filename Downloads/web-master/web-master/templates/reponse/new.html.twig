@@ -1,0 +1,9 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter votre réponse</h1>
+
+    {{ include('reponse/_form.html.twig') }}
+
+    <a href="{{ path('app_reponse_index') }}">back to list</a>
+{% endblock %}
